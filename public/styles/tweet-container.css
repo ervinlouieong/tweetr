@@ -2,11 +2,12 @@
   padding: 10px 0;
 }
 
-article .tweet {
+.tweet {
   margin: auto 2em;
   border: 1px solid grey;
   border-radius: 5px;
   background-color: white;
+  margin-bottom: 10px;
 }
 
 .tweet:hover {
@@ -34,7 +35,8 @@ article .tweet {
 .userHandle {
   display: inline;
   vertical-align: 40px;
-  margin-left: 135px;
+  float: right;
+  margin-right: 10px;
 }
 
 .tweetText {
@@ -54,5 +56,5 @@ article .tweet {
 .tweet footer:hover .icons {
   display: inline;
   color: mediumaquamarine;
-  margin-left: 265px;
+  margin-left: 230px;
 }

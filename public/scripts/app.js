@@ -60,7 +60,7 @@ function createTweetElement(tweet) {
             <header>
               <img src="${tweet.user.avatars.small}" class="userAvatar">
               <h2 class="userName">${tweet.user.name}</h2>
-             <h6 class="userHandle">${tweet.user.handle}</h5>
+             <h6 class="userHandle">${tweet.user.handle}</h6>
             </header>
             <p class="tweetText">${tweet.content.text}</p>
             <footer>
