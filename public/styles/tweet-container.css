@@ -1,0 +1,58 @@
+#tweets {
+  padding: 10px 0;
+}
+
+article .tweet {
+  margin: auto 2em;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.tweet:hover {
+  border: 1.5px solid black;
+}
+
+.tweet header {
+  background-color: #eeeeee;
+  opacity: 0.6;
+}
+
+.tweet header:hover {
+  opacity: 1.0;
+}
+
+.userAvatar {
+  margin: 10px;
+}
+
+.userName {
+  display: inline;
+  vertical-align: 40px;
+}
+
+.userHandle {
+  display: inline;
+  vertical-align: 40px;
+  margin-left: 135px;
+}
+
+.tweetText {
+  padding: 20px;
+}
+
+.tweet footer {
+  border-top: 1px solid grey;
+  padding: 10px;
+  font-size: 75%;
+}
+
+.tweet footer .icons {
+  display: none;
+}
+
+.tweet footer:hover .icons {
+  display: inline;
+  color: mediumaquamarine;
+  margin-left: 265px;
+}
