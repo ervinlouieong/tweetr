@@ -19,7 +19,7 @@
   opacity: 0.6;
 }
 
-.tweet header:hover {
+.tweet:hover header {
   opacity: 1.0;
 }
 
@@ -53,7 +53,7 @@
   display: none;
 }
 
-.tweet footer:hover .icons {
+.tweet:hover footer .icons {
   display: inline;
   color: mediumaquamarine;
   margin-left: 230px;
