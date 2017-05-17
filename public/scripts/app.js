@@ -47,9 +47,9 @@ var data = [
 ];
 
 function renderTweets(tweets) {
-  var $tweetContainer = $('#tweets');
-  for (let ii = 0; ii < data.length; ii++) {
-    let tweet = data[ii];
+  var $tweetContainer = $('#tweetsContainer');
+  for (let element in data) {
+    let tweet = data[element];
     $tweetContainer.append(createTweetElement(tweet));
   }
 }
@@ -71,8 +71,7 @@ function createTweetElement(tweet) {
               <i class="fa fa-heart" aria-hidden="true"></i>
              </div>
             </footer>
-          </article>
-            `
+          </article>`
   return $(html);
 }
 
