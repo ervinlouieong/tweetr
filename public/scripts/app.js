@@ -1,31 +1,5 @@
 $(function() {
 
-  function loadTweets() { 
-    $.ajax({
-      url: "/tweets",
-      method: "GET"
-    }).done(function(data) {
-      renderTweets(data);
-    });
-  };
-
-  loadTweets();
-
-let $submitTweet = $(".submitTweet");
-$submitTweet.on("submit", function(event) {
-  event.preventDefault();
-  $(this).serialize();
-});
-
-
-function renderTweets(tweets) {
-  let $tweetsContainer = $("#tweetsContainer");
-  for (let element in tweets) {
-    let tweet = tweets[element];
-    $tweetsContainer.append(createTweetElement(tweet));
-  }
-}
-
 function createTweetElement(tweet) {
   let $tweet = $("<article>").addClass("tweet");
   let $header = $("<header>");
@@ -45,6 +19,35 @@ function createTweetElement(tweet) {
   return $tweet;
 }
 
+function renderTweets(tweets) {
+  let $tweetsContainer = $("#tweetsContainer");
+  for (let element in tweets) {
+    let tweet = tweets[element];
+    $tweetsContainer.append(createTweetElement(tweet));
+  }
+}
 
-  //renderTweets(data);
+let $submitTweet = $(".submitTweet");
+$submitTweet.on("submit", function(event) {
+  event.preventDefault();
+  $.ajax({
+    url: "/tweets",
+    method: "POST",
+    data: $(this).serialize()
+  }).done(function(data) {
+     loadTweets();
+  })
+});
+
+function loadTweets() { 
+  $.ajax({
+    url: "/tweets",
+    method: "GET"
+  }).done(function(data) {
+     renderTweets(data); 
+    });
+}
+
+loadTweets();
+
 });
