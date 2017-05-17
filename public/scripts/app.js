@@ -1,3 +1,4 @@
+$(function() {
 // Fake data taken from tweets.json
 var data = [
   {
@@ -47,34 +48,33 @@ var data = [
 ];
 
 function renderTweets(tweets) {
-  var $tweetContainer = $('#tweetsContainer');
+  let $tweetsContainer = $('#tweetsContainer');
   for (let element in data) {
     let tweet = data[element];
-    $tweetContainer.append(createTweetElement(tweet));
+    $tweetsContainer.append(createTweetElement(tweet));
   }
 }
 
 function createTweetElement(tweet) {
-  const html = `
-           <article class="tweet">
-            <header>
-              <img src="${tweet.user.avatars.small}" class="userAvatar">
-              <h2 class="userName">${tweet.user.name}</h2>
-             <h6 class="userHandle">${tweet.user.handle}</h6>
-            </header>
-            <p class="tweetText">${tweet.content.text}</p>
-            <footer>
-             <span class="dateCreated">${tweet.created_at}</span>
-             <div class="icons">
-              <i class="fa fa-flag" aria-hidden="true"></i>
-              <i class="fa fa-retweet" aria-hidden="true"></i>
-              <i class="fa fa-heart" aria-hidden="true"></i>
-             </div>
-            </footer>
-          </article>`
-  return $(html);
+  let $tweet = $("<article>").addClass("tweet");
+  let $header = $("<header>");
+  let $userAvatar = $("<img>").addClass("userAvatar").attr("src", tweet.user.avatars.small);
+  let $userNAme = $("<h2>").addClass("userName").text(tweet.user.name);
+  let $userHandle = $("<h6>").addClass("userHandle").text(tweet.user.handle);
+  let $tweetContent = $("<p>").addClass("tweetText").text(tweet.content.text);
+  let $footer = $("<footer>");
+  let $dateCreated = $("<span>").addClass("dateCreated").text(tweet.created_at);
+  let $icons = $("<div>").addClass("icons");
+  $icons.append( `<i class="fa fa-flag" aria-hidden="true"></i>
+                 <i class="fa fa-retweet" aria-hidden="true"></i>
+                 <i class="fa fa-heart" aria-hidden="true"></i>)`);
+  $tweet.append($header, $tweetContent, $footer);
+  $header.append($userAvatar, $userNAme, $userHandle);
+  $footer.append($dateCreated, $icons);
+
+  return $tweet;
 }
 
-$(function() {
+
   renderTweets(data);
 });
