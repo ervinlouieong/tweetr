@@ -21,22 +21,29 @@ function createTweetElement(tweet) {
 
 function renderTweets(tweets) {
   let $tweetsContainer = $("#tweetsContainer");
+  $tweetsContainer.empty();
   for (let element in tweets) {
     let tweet = tweets[element];
-    $tweetsContainer.append(createTweetElement(tweet));
+    $tweetsContainer.prepend(createTweetElement(tweet));
   }
 }
 
-let $submitTweet = $(".submitTweet");
-$submitTweet.on("submit", function(event) {
+$(".submitTweet").on("submit", function(event) {
   event.preventDefault();
-  $.ajax({
-    url: "/tweets",
-    method: "POST",
-    data: $(this).serialize()
-  }).done(function(data) {
-     loadTweets();
-  })
+  let textLength = $("textarea").val().length;
+  if (textLength === 0) {
+    alert("Please fill in the tweetbox.");
+  } else if (textLength > 140) {
+    alert("Character Limit Exceeded!");
+  } else {
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: $(this).serialize()
+    }).done(function(data) {
+      loadTweets();
+    })
+  }
 });
 
 function loadTweets() { 
