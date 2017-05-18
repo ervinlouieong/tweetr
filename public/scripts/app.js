@@ -50,7 +50,7 @@ $(function() {
       $tweetsContainer.prepend(createTweetElement(tweet));
     }
   }
-  
+
 // Get all the values from /tweets
   function loadTweets() {
     $.ajax({
@@ -65,25 +65,30 @@ $(function() {
 // On Submit Tweet
   $(".submitTweet").on("submit", function(event) {
     event.preventDefault();
-// Form validation of textarea
+    // Form validation of textarea
     let textLength = $("textarea").val().length;
+    // If post textarea is empty, alert.
     if (textLength === 0) {
       alert("Please fill in the tweetbox.");
+      $("textarea").focus();
+    // If post is exceeding the limit max of characters, alert.
     } else if (textLength > 140) {
       alert("Character Limit Exceeded!");
+      $("textarea").focus();
     } else {
-// Add the value to /tweets
+      // Add the value to /tweets
       $.ajax({
         url: "/tweets",
         method: "POST",
         data: $(this).serialize()
       }).done(function(data) {
+        // once post to /tweets is done, load the tweet immediately on the page
         loadTweets();
+        // Clear textarea upon sucessfull submit of tweet
+        $("textarea").val("");
       });
     }
   });
-
-
 
 // Compose button
   $("button").on("click", function(event) {
