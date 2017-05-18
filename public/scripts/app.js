@@ -1,5 +1,6 @@
 $(function() {
 
+// Create New Tweets, the inside of section #tweetsContainer.
 function createTweetElement(tweet) {
   let $tweet = $("<article>").addClass("tweet");
   let $header = $("<header>");
@@ -19,6 +20,7 @@ function createTweetElement(tweet) {
   return $tweet;
 }
 
+// Iterate each entry on /tweets. Last entry is on top.
 function renderTweets(tweets) {
   let $tweetsContainer = $("#tweetsContainer");
   $tweetsContainer.empty();
@@ -28,14 +30,17 @@ function renderTweets(tweets) {
   }
 }
 
+// On Submit Tweet
 $(".submitTweet").on("submit", function(event) {
   event.preventDefault();
+  // Form validation of textarea
   let textLength = $("textarea").val().length;
   if (textLength === 0) {
     alert("Please fill in the tweetbox.");
   } else if (textLength > 140) {
     alert("Character Limit Exceeded!");
   } else {
+    // Add the value to /tweets 
     $.ajax({
       url: "/tweets",
       method: "POST",
@@ -46,6 +51,7 @@ $(".submitTweet").on("submit", function(event) {
   }
 });
 
+// Get all the values from /tweets
 function loadTweets() { 
   $.ajax({
     url: "/tweets",
@@ -57,4 +63,12 @@ function loadTweets() {
 
 loadTweets();
 
+// Compose button
+$("button").on("click", function(event) {
+  event.preventDefault();
+  $(".new-tweet").slideToggle("slow", function(){
+        $("textarea").focus();
+  });
+});
+  
 });
