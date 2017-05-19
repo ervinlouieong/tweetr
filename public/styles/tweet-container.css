@@ -1,5 +1,5 @@
 #tweetsContainer {
-  padding: 10px 0;
+  padding: 1em 0;
 }
 
 .tweet {
@@ -7,7 +7,7 @@
   border: 1px solid grey;
   border-radius: 8px;
   background-color: white;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
 }
 
 .tweet:hover {
@@ -17,6 +17,7 @@
 .tweet header {
   background-color: #eeeeee;
   opacity: 0.6;
+  position: relative;
 }
 
 .tweet:hover header {
@@ -24,31 +25,37 @@
 }
 
 .userAvatar {
-  margin: 10px;
+  margin: 0.5em;
 }
 
 .userName {
   display: inline;
-  vertical-align: 40px;
+  vertical-align: 1.5em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .userHandle {
   display: inline;
-  vertical-align: 40px;
-  float: right;
-  margin-right: 10px;
+  vertical-align: 1.5em;
+  position: absolute;
+  right: 0;
+  margin-right: 1em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .tweetText {
-  padding: 20px;
+  padding: 1em;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 .tweet footer {
   border-top: 1px solid grey;
-  padding: 10px;
+  padding: 1em;
   font-size: 75%;
+  position: relative;
 }
 
 .tweet footer .icons {
@@ -58,5 +65,7 @@
 .tweet:hover footer .icons {
   display: inline;
   color: mediumaquamarine;
-  float: right;
+  position: absolute;
+  right: 0;
+  margin-right: 1em;
 }

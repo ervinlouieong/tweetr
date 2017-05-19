@@ -1,8 +1,8 @@
 .new-tweet {
   margin: auto 2em;
   border: 1px solid grey;
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 8px;
+  padding: 0.5em 1em;
   background-color: #eeeeee;
 }
 
@@ -11,12 +11,12 @@
 }
 
 .new-tweet textarea {
-  padding: 5px;
+  padding: 0.5em;
   width: 100%;
 }
 
 .new-tweet .counter {
-  margin-left: 280px;
+  float: right;
   font-style: italic;
 }
 

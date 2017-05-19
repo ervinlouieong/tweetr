@@ -5,7 +5,7 @@
   width: 100%;
   background-color: #00a087;
   color: #e8fdff;
-  padding: 0px 2em;
+  padding: 0 2em;
   z-index: 1;
 }
 
@@ -27,13 +27,12 @@
   background-color: #e8fdff;
   color: #00a087;
   border: 1px solid black;
-  padding: 18px;
+  padding: 1rem 0.5rem;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 1.5rem;
   border-radius: 8px;
-  margin: 10px 30px;
+  margin: 0.5rem 0.25rem;
 }
 
 #nav-bar button:hover {
