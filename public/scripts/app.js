@@ -2,35 +2,37 @@ $(function() {
 
 // Use to convert Date.now()
   function getDaysDifference(tweet) {
+    const $dateClass = $("<span>").addClass("dateCreated");
     let $dateDifference = 0;
     const minutes = 1000 * 60;
     const hours = minutes * 60;
     const days = hours * 24;
-    let dateDiff = Math.round((Date.now() - tweet.created_at) / days);
-    if (dateDiff === 0) {
-      dateDiff = Math.round((Date.now() - tweet.created_at) / hours);
-      if (dateDiff === 0) {
-        dateDiff = Math.round((Date.now() - tweet.created_at) / minutes);
-        $dateDifference = $("<span>").addClass("dateCreated").text(dateDiff + " minutes ago");
+    let dateDiff = Date.now() - tweet.created_at;
+    let dateDiffConvert = Math.round(dateDiff / days);
+    if (dateDiffConvert === 0) {
+      dateDiffConvert = Math.round(dateDiff / hours);
+      if (dateDiffConvert === 0) {
+        dateDiffConvert = Math.round(dateDiff / minutes);
+        $dateDifference = $dateClass.text(dateDiffConvert + " minutes ago");
       } else {
-        $dateDifference = $("<span>").addClass("dateCreated").text(dateDiff + " hours ago");
+        $dateDifference = $dateClass.text(dateDiffConvert + " hours ago");
       }
     } else {
-      $dateDifference = $("<span>").addClass("dateCreated").text(dateDiff + " days ago");
+      $dateDifference = $dateClass.text(dateDiffConvert + " days ago");
     }
     return $dateDifference;
   }
 
 // Create New Tweets, the inside of section #tweetsContainer.
   function createTweetElement(tweet) {
-    let $tweet = $("<article>").addClass("tweet");
-    let $header = $("<header>");
+    const $tweet = $("<article>").addClass("tweet");
+    const $header = $("<header>");
+    const $footer = $("<footer>");
+    const $icons = $("<div>").addClass("icons");
     let $userAvatar = $("<img>").addClass("userAvatar").attr("src", tweet.user.avatars.small);
     let $userNAme = $("<h2>").addClass("userName").text(tweet.user.name);
     let $userHandle = $("<h6>").addClass("userHandle").text(tweet.user.handle);
     let $tweetContent = $("<p>").addClass("tweetText").text(tweet.content.text);
-    let $footer = $("<footer>");
-    let $icons = $("<div>").addClass("icons");
 
     $tweet.append($header, $tweetContent, $footer);
     $header.append($userAvatar, $userNAme, $userHandle);
@@ -38,12 +40,13 @@ $(function() {
     $icons.append( `<i class="fa fa-flag" aria-hidden="true"></i>
                  <i class="fa fa-retweet" aria-hidden="true"></i>
                  <i class="fa fa-heart" aria-hidden="true"></i>`);
+
     return $tweet;
   }
 
 // Iterate each entry on /tweets. Last entry is on top.
   function renderTweets(tweets) {
-    let $tweetsContainer = $("#tweetsContainer");
+    const $tweetsContainer = $("#tweetsContainer");
     $tweetsContainer.empty();
     for (let element in tweets) {
       let tweet = tweets[element];
@@ -86,6 +89,7 @@ $(function() {
         loadTweets();
         // Clear textarea upon sucessfull submit of tweet
         $("textarea").val("");
+        $(".counter").text("140");
       });
     }
   });
