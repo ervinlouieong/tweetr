@@ -5,13 +5,13 @@
 .tweet {
   margin: auto 2em;
   border: 1px solid grey;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: white;
   margin-bottom: 10px;
 }
 
 .tweet:hover {
-  border: 1.5px solid black;
+  border: 1.3px solid black;
 }
 
 .tweet header {
@@ -41,6 +41,8 @@
 
 .tweetText {
   padding: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .tweet footer {
@@ -56,5 +58,5 @@
 .tweet:hover footer .icons {
   display: inline;
   color: mediumaquamarine;
-  margin-left: 230px;
+  float: right;
 }
