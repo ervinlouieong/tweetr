@@ -1,71 +1,52 @@
 #tweetsContainer {
-  padding: 1em 0;
-}
+  padding: 1em 0; }
 
-.tweet {
+#tweetsContainer .tweet {
   margin: auto 2em;
   border: 1px solid grey;
   border-radius: 8px;
   background-color: white;
-  margin-bottom: 1em;
-}
+  margin-bottom: 1em; }
+  #tweetsContainer .tweet header {
+    background-color: #eeeeee;
+    opacity: 0.6;
+    position: relative; }
+    #tweetsContainer .tweet header .userAvatar {
+      margin: 0.5em; }
+    #tweetsContainer .tweet header .userName {
+      display: inline;
+      vertical-align: 1.5em;
+      word-wrap: break-word;
+      overflow-wrap: break-word; }
+    #tweetsContainer .tweet header .userHandle {
+      display: inline;
+      vertical-align: 1.5em;
+      position: absolute;
+      right: 0;
+      margin-right: 1em;
+      word-wrap: break-word;
+      overflow-wrap: break-word; }
+  #tweetsContainer .tweet .tweetText {
+    padding: 1em;
+    word-wrap: break-word;
+    overflow-wrap: break-word; }
+  #tweetsContainer .tweet footer {
+    border-top: 1px solid grey;
+    padding: 1em;
+    font-size: 75%;
+    position: relative; }
+    #tweetsContainer .tweet footer .icons {
+      display: none; }
 
-.tweet:hover {
-  border: 1.3px solid black;
-}
+#tweetsContainer .tweet:hover {
+  border: 1.3px solid black; }
+  #tweetsContainer .tweet:hover header {
+    opacity: 1.0; }
+  #tweetsContainer .tweet:hover footer .icons {
+    display: inline;
+    color: mediumaquamarine;
+    position: absolute;
+    right: 0;
+    margin-right: 1em; }
 
-.tweet header {
-  background-color: #eeeeee;
-  opacity: 0.6;
-  position: relative;
-}
-
-.tweet:hover header {
-  opacity: 1.0;
-}
-
-.userAvatar {
-  margin: 0.5em;
-}
-
-.userName {
-  display: inline;
-  vertical-align: 1.5em;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.userHandle {
-  display: inline;
-  vertical-align: 1.5em;
-  position: absolute;
-  right: 0;
-  margin-right: 1em;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.tweetText {
-  padding: 1em;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.tweet footer {
-  border-top: 1px solid grey;
-  padding: 1em;
-  font-size: 75%;
-  position: relative;
-}
-
-.tweet footer .icons {
-  display: none;
-}
-
-.tweet:hover footer .icons {
-  display: inline;
-  color: mediumaquamarine;
-  position: absolute;
-  right: 0;
-  margin-right: 1em;
-}
+/*# sourceMappingURL=tweet-container.css.map */

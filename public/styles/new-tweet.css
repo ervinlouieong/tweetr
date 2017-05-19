@@ -3,23 +3,17 @@
   border: 1px solid grey;
   border-radius: 8px;
   padding: 0.5em 1em;
-  background-color: #eeeeee;
-}
-
-.new-tweet h2 {
-  border-bottom: 1px solid black;
-}
-
-.new-tweet textarea {
-  padding: 0.5em;
-  width: 100%;
-}
-
-.new-tweet .counter {
-  float: right;
-  font-style: italic;
-}
+  background-color: #eeeeee; }
+  .new-tweet h2 {
+    border-bottom: 1px solid black; }
+  .new-tweet textarea {
+    padding: 0.5em;
+    width: 100%; }
+  .new-tweet .counter {
+    float: right;
+    font-style: italic; }
 
 .maxedOut {
-  color: red;
-}
+  color: red; }
+
+/*# sourceMappingURL=new-tweet.css.map */
